@@ -10,8 +10,9 @@ module FillMurray
 	  			height = width
 	  		end  			
   		end
-    	# image_tag "http://www.fillmurray.com/#{width}/#{height}"
-    	"<img src=\"http://www.fillmurray.com/#{width}/#{height}\" class=\"#{options[:class]}\" alt=\"#{options[:alt]}\">"
+    	image_tag "http://www.fillmurray.com/#{width}/#{height}", 
+    		options[:alt] ? :alt => options[:alt] : nil, 
+    		options[:class] ? :class => options[:class] : nil
     end
 
   end
