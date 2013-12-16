@@ -1,5 +1,5 @@
 require "fill_murray/version"
-require 'my_gem/railtie' if defined?(Rails)
+require 'fill_murray/railtie' if defined?(Rails)
 
 module FillMurray
   # Your code goes here...
