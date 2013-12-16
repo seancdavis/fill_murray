@@ -11,8 +11,8 @@ module FillMurray
 	  		end  			
   		end
     	image_tag "http://www.fillmurray.com/#{width}/#{height}", 
-    		options[:alt] ? :alt => options[:alt] : nil, 
-    		options[:class] ? :class => options[:class] : nil
+    		:alt =>  options[:alt] ? options[:alt] : nil, 
+    		:class => options[:class] ? options[:class] : nil
     end
 
   end
