@@ -6,10 +6,10 @@ require 'fill_murray/version'
 Gem::Specification.new do |spec|
   spec.name          = "fill_murray"
   spec.version       = FillMurray::VERSION
-  spec.authors       = ["Sean C Davis"]
+  spec.authors       = ["Sean C. Davis"]
   spec.email         = ["scdavis41@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Easily add photos of Bill Murray to your project, because everyone needs a little Bill Murray}
+  spec.summary       = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"
 
