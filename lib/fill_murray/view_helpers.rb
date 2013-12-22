@@ -10,7 +10,10 @@ module FillMurray
 	  			height = width
 	  		end  			
   		end
-    	image_tag "http://www.fillmurray.com/#{width}/#{height}", 
+      if options[:grey] == true
+        g = "g/"
+      end
+    	image_tag "http://www.fillmurray.com/#{g}#{width}/#{height}", 
     		:alt =>  options[:alt] ? options[:alt] : nil, 
     		:class => options[:class] ? options[:class] : nil
     end
