@@ -1,7 +1,7 @@
 module FillMurray
   module ViewHelpers
 
-  	def fill_murray(width, height, options = {})
+  	def fill_murray(width = nil, height = nil, options = {})
   		if height.blank?
   			if width.blank?
 	  			width = Random.new.rand(100...1000)
