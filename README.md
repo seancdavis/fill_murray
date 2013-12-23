@@ -1,8 +1,9 @@
 # Fill Murray
 
-Fill Murray makes it super simple to add placeholder images of Bill Murray to
-your Rails projects. It uses the [website](http://www.fillmurray.com/) created
-by [Dave Cowart](https://twitter.com/davecowart) to serve images.
+Fill Murray makes it super simple to add placeholder images of Bill Murray, Nick
+Cage or Steven Segal to your Rails projects. It uses the
+[websites](http://www.fillmurray.com/) created by
+[Dave Cowart](https://twitter.com/davecowart) to serve images.
 
 ## Installation
 
@@ -31,38 +32,82 @@ This will render an image of Bill Murray at a random height and width between
 
 ### Parameters
 
-You can pass dimensions to better control the output image. `width` comes before
-`height`, like so:
+#### Dimensions
+
+You can explicitly control image dimensions -- `width` and `height`:
 
 ```erb
-<%= fill_murray 200, 300 %>
+<%= fill_murray :width => 200, :height => 300 %>
 ```
 
-Following the dimensions, you can add a block of configuration options,
-including:
+To get more variety in your images, you can instead pass a ratio:
+
+```erb
+<%= fill_murray :ratio => '1:2' %>
+```
+
+Note: The ratio should be a string of two numbers, separated by a `:`.
+
+You can pass any two numbers if square. For example, `'500:500'` gets reduced to
+`'1:1'`. Ratios are generated such that the larger dimension can never be
+larger than `1000px`.
+
+> Note: The ratio may never be greater or equal to than `10x`. In other words,
+> it may never be greater than or equal to `'10:1'` or `'1:10'`. For example,
+> `'1000:100'` will not work, but `'1000:101'` will.
+
+#### Person / Subject
+
+The default is an image of Bill Murray. If you'd rather use Nick Cage or Steven
+Segal, you can pass a `:person` parameter. Acceptable values are:
+
+* `'Nick'`, `'Cage'`, `'Nick Cage'`
+* `'Steve'`, `'Steven'`, `'Segal'`, `'Steven Segal'`
+
+Any other values with render an image of Bill Murray.
+
+Examples:
+
+```erb
+<%= fill_murray :person => 'Nick', :ratio => '9:1' %>
+```
+
+#### Effects
+
+Each of the subjects can yield grey (black & white) images. Simply pass `:grey
+=> true` for black and white images:
+
+```erb
+<%= fill_murray :person => 'Nick', :ratio => '9:1', :grey => true %>
+```
+
+Nick Cage has another option -- `:crazy` -- to render *crazy* images of Nick
+Cage (which are approximately 50% of all images of Nick Cage).
+
+```erb
+<%= fill_murray :person => 'Nick', :ratio => '9:1', :crazy => true %>
+```
+
+A couple notes to consider:
+
+* `:crazy` will not work if `:person => 'Nick'` has not been specified.
+* `:grey` will always override `:crazy`. You may not pass both options.
+
+#### Attributes
+
+You can send some HTML attributes to the image tag:
 
 * `alt` : adds alternate attribute to image tag
 * `class` : adds class(es) to image tag
-* `grey` : will make image black and white (accepts `true`/`false`)
-
-**For example:**
 
 ```erb
-<%= fill_murray 1200, 300, { :grey => true, :class => "panoramic" } %>
+<%= fill_murray :grey => true, :class => "panoramic" %>
 ```
-
-> Note: Currently, you must specify `width` and `height` to be able to pass
-> options.
 
 ## The Future
 
-This gem is at its beginning and only has limited features and functionality. I
-plan to expand on this in the future. Here are some planned features:
-
-* add Nick Cage and Steven Segal images (also sites from Dave Cowart)
-* add additional (but always fun) placeholder images
-* make it easier to pass parameters (options without dimensions)
-* allow dimension ratio as an option for random images
+Have an idea for adding something other subjects? Or maybe more options? Send me
+a note.
 
 ## Contributing
 
