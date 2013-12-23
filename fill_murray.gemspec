@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = FillMurray::VERSION
   spec.authors       = ["Sean C. Davis"]
   spec.email         = ["scdavis41@gmail.com"]
-  spec.description   = %q{Easily add photos of Bill Murray to your project, because everyone needs a little Bill Murray}
+  spec.description   = %q{Easily add photos of Bill Murray, Nick Cage and Steven Segal to your project, because why not?}
   spec.summary       = %q{}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/seancdavis/fill_murray"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
